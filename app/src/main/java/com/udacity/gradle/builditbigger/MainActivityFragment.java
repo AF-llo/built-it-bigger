@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.Joker;
 import com.google.android.gms.ads.AdRequest;
 import com.udacity.gradle.builditbigger.databinding.FragmentMainBinding;
 
@@ -37,6 +38,6 @@ public class MainActivityFragment extends Fragment {
     }
 
     public void tellJoke() {
-        Toast.makeText(getContext(), "derp", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), Joker.tellJoke(), Toast.LENGTH_SHORT).show();
     }
 }
