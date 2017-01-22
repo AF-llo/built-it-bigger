@@ -8,7 +8,6 @@ import java.util.Random;
 
 public class GermanJokeTeller implements JokeTeller {
 
-    // TODO: 22.01.17 add some german info jokes
     private static String[] jokes = {
             "Wie viele Programmierer sind nötig, um eine kaputte Glühbirne auszuwechseln? – Keiner. Das ist ein Hardwareproblem.",
             "Telefonieren zwei Informatiker. Fragt der eine: „Und, wie ist das Wetter bei euch?“ „Caps Lock.“ „Häh?“ „Na, shift ohne Ende…“",
