@@ -47,7 +47,7 @@ public class JokeTask extends AsyncTask<JokeTask.JokeListener, Void, String> {
             return jokeApi.loadJoke().execute().getJoke();
         } catch (IOException e) {
             Log.e("JokeTask", e.getMessage());
-            return "";
+            return "All joke tellers probably sleeping";
         }
     }
 
