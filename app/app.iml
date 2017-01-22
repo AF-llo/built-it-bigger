@@ -179,6 +179,5 @@
     <orderEntry type="library" exported="" name="appcompat-v7-25.1.0" level="project" />
     <orderEntry type="library" exported="" name="annotations-24.5.0" level="project" />
     <orderEntry type="module" module-name="jokepresenter" exported="" />
-    <orderEntry type="module" module-name="joking" exported="" />
   </component>
 </module>

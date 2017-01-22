@@ -1,15 +1,17 @@
-package com.udacity.gradle.builditbigger;
+package com.udacity.gradle.builditbigger.ui;
 
 import android.databinding.DataBindingUtil;
+import android.databinding.ObservableBoolean;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.Joker;
 import com.google.android.gms.ads.AdRequest;
+import com.udacity.gradle.builditbigger.R;
 import com.udacity.gradle.builditbigger.databinding.FragmentMainBinding;
+import com.udacity.gradle.builditbigger.network.JokeTask;
 
 import de.lokaizyk.jokepresenter.JokeActivity;
 
@@ -17,7 +19,9 @@ import de.lokaizyk.jokepresenter.JokeActivity;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MainActivityFragment extends Fragment {
+public class MainActivityFragment extends Fragment implements JokeTask.JokeListener{
+
+    public ObservableBoolean isLoading = new ObservableBoolean(false);
 
     public MainActivityFragment() {
     }
@@ -39,6 +43,13 @@ public class MainActivityFragment extends Fragment {
     }
 
     public void tellJoke() {
-        JokeActivity.displayJoke(getContext(), Joker.tellJoke());
+        isLoading.set(true);
+        new JokeTask().execute(this);
+    }
+
+    @Override
+    public void jokeLoaded(String joke) {
+        isLoading.set(false);
+        JokeActivity.displayJoke(getContext(), joke);
     }
 }

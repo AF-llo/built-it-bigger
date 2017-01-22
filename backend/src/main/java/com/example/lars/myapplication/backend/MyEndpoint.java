@@ -6,6 +6,7 @@
 
 package com.example.lars.myapplication.backend;
 
+import com.example.Joker;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
@@ -26,6 +27,8 @@ import javax.inject.Named;
 )
 public class MyEndpoint {
 
+    // TODO: 22.01.17 remove
+
     /**
      * A simple endpoint method that takes a name and says Hi back
      */
@@ -35,6 +38,13 @@ public class MyEndpoint {
         response.setData("Hi, " + name);
 
         return response;
+    }
+
+    @ApiMethod(name = "loadJoke")
+    public JokeBean loadJoke() {
+        JokeBean jokeBean = new JokeBean();
+        jokeBean.setJoke(Joker.tellJoke());
+        return jokeBean;
     }
 
 }
