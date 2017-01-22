@@ -32,9 +32,15 @@ public class JokeActivity extends AppCompatActivity {
         ActivityJokeBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_joke);
         binding.setJokeActivity(this);
 
-        Bundle extras = getIntent().getExtras();
-        if (extras != null && extras.containsKey(EXTRA_JOKE)) {
-            joke.set(extras.getString(EXTRA_JOKE));
+        Bundle data = savedInstanceState == null ? getIntent().getExtras() : savedInstanceState;
+        if (data != null && data.containsKey(EXTRA_JOKE)) {
+            joke.set(data.getString(EXTRA_JOKE));
         }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putString(EXTRA_JOKE, joke.get());
+        super.onSaveInstanceState(outState);
     }
 }
